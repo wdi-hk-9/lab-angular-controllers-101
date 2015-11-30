@@ -14,37 +14,39 @@
     <body>
       <h1>The Metropolitan Museum of Art</h1>
 
-      <section id="exhibit" ng-controller="ExhibitController as exhibit">
+      <section id="exhibit" ng-controller="ExhibitController">
         <h2>Exihibit:</h2>
-        <img src="{{exhibit.headerImage}}" alt="{{exhibit.artist}}">
-        <h3>{{exhibit.title}}</h3>
-        <h4>By {{exhibit.artist}}</h4>
+        <img ng-src="{{headerImage}}" alt="{{artist}}">
+        <h3>{{title}}</h3>
+        <h4>By {{artist}}</h4>
       </section>
 
-      <section id="generalInfo" ng-controller="GeneralInfoController as info">
+      <section id="generalInfo" ng-controller="GeneralInfoController">
         <h2>General Info:</h2>
         <h3>Hours:</h3>
         <ul>
-          <li ng-repeat="(key, value) in info.hours">
+          <li ng-repeat="(key, value) in hours">
             <strong> {{key}}:</strong> {{ value }}
           </li>
         </ul>
+
         <h3>Suggested Admission:</h3>
         <ul>
-          <li ng-repeat="(key, value) in info.admission">
+          <li ng-repeat="(key, value) in admission">
             {{key}} - {{value}}
           </li>
         </ul>
       </section>
-      <section id="donor" ng-controller="DonorController as donors">
+
+      <section id="donor" ng-controller="DonorController">
         <h2>Donor Information</h2>
         <h3>Contact:</h3>
         <p>
-          <a href="mailto:{{donors.contact.email}}">{{donors.contact.email}}</a> • {{donors.contact.phone}}
+          <a href="mailto:{{contact.email}}">{{contact.email}}</a> • {{contact.phone}}
         </p>
         <h4>Donation Amounts:</h4>
         <ul>
-          <li ng-repeat="amount in donors.amounts">
+          <li ng-repeat="amount in amounts">
             ${{amount}}
           </li>
         </ul>
